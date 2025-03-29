@@ -59,6 +59,10 @@
             <span class="author-block">Stanford University</span>
           </div>
 
+          <div class="is-size-4 publication-authors">
+            <span class="author-block"><em>SIGGRAPH 2025</em></span>
+          </div>
+
           <div class="column has-text-centered">
             <div class="publication-links">
               <!--
@@ -101,12 +105,14 @@
                 </a>
               </span>
               -->
+              <!--
               <span class="link-block">
                 <a href=""
                    class="button is-normal is-rounded is-dark">
                   <span>Results</span>
                   </a>
               </span>
+              -->
               <!-- Code Link. -->
               <span class="link-block">
                 <a href=""
@@ -342,7 +348,7 @@
           <!-- Left side controls -->
           <div class="column is-5">
             <div class="box">
-              <h3 class="subtitle is-4 has-text-centered">Compare Models & Scenes</h3>
+              <h3 class="subtitle is-4 has-text-centered">Compare CGH Methods</h3>
               
               <!-- Scene selector -->
               <div class="field">
@@ -365,7 +371,7 @@
               
               <!-- Model selector buttons -->
               <div class="field">
-                <label class="label">Model</label>
+                <label class="label">CGH Method</label>
                 <div class="buttons has-addons is-centered model-buttons">
                   <button class="button is-active" data-model="pc_match">Point Cloud</button>
                   <button class="button" data-model="mesh_match">Textured Mesh</button>
@@ -376,8 +382,9 @@
               
               <div class="content has-text-justified mt-4">
                 <p class="description-text">
-                  Select different scenes and models to compare hologram reconstruction quality.
-                  The GWS models show superior focal stack quality compared to traditional 
+                  Select different scenes and CGH methods to compare the
+                  3D focal stack reconstruction quality of holograms.
+                  The GWS models show superior image stack quality compared to traditional 
                   point cloud and mesh-based approaches.
                 </p>
               </div>
@@ -405,9 +412,10 @@
       <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
         <pre><code>
-@misc{choi2025gaussianwavesplatting,
+@inproceedings{choi2025gaussianwavesplatting,
   title={Gaussian Wave Splatting for Computer Generated Holography},
   author={Suyeon Choi and Brian Chao and Jackie Yang and Manu Gopakumar and Gordon Wetzstein},
+  booktitle={ACM SIGGRAPH 2025},
   year={2025},
 }
         </code></pre>
