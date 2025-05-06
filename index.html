@@ -60,7 +60,7 @@
           </div>
 
           <div class="is-size-4 publication-authors">
-            <span class="author-block"><em>SIGGRAPH 2025</em></span>
+            <span class="author-block"><em>SIGGRAPH 2025 (Journal Track)</em></span>
           </div>
 
           <div class="column has-text-centered">
@@ -142,7 +142,7 @@
           </video>
         </div>
       </div>
-      <p class="has-text-centered is-8" style="margin-top: 10px; margin-bottom: 10px;">(hover over the video to pause)</p>
+      <p class="has-text-centered is-8" style="margin-top: 10px; margin-bottom: 10px;"><strong>Experimentally captured 3D focal stacks of generated holograms on a holographic display prototype.</strong><br> (hover over the video to pause)</p>
       <div class="buttons is-centered">
         <button class="button is-active-teaser" id="teaser-button-garden" onclick="selectTeaserScene('garden')">Garden</button>
         <button class="button" id="teaser-button-kitchen" onclick="selectTeaserScene('kitchen')">Kitchen</button>
@@ -307,7 +307,7 @@
           <video class="synced-video" autoplay muted loop playsinline>
             <source src="./static/videos/kitchen_mesh_match_focal_stack_insets.mp4" type="video/mp4">
           </video>
-          <p class="video-label">Textured mesh</p>
+          <p class="video-label">Polygon-based CGH</p>
         </div>
         <div class="video-cell">
           <video class="synced-video" autoplay muted loop playsinline>
@@ -327,7 +327,7 @@
       <p class="has-text-centered" style="font-size: smaller;">(hover over the videos to pause)</p>
       <p>
         GWS achieves superior 3D focal stack reconstruction quality compared to prior primitives-based computer generated holography 
-        algorithms based on point clouds and textured meshes. We also designed a fast variant of GWS based on an approximated 
+        algorithms based on point clouds and per-face textured meshes (polygon-based CGH). We also designed a fast variant of GWS based on an approximated 
         volume rendering image formation model inspired by order-invariant transparency (OIT) in traditional computer graphics.
         We implemented custom CUDA kernels for this fast GWS variant, achieving a 30X speedup compared the full, exact GWS with only a small drop in image quality.
       </p>
@@ -374,7 +374,7 @@
                 <label class="label">CGH Method</label>
                 <div class="buttons has-addons is-centered model-buttons">
                   <button class="button is-active" data-model="pc_match">Point Cloud</button>
-                  <button class="button" data-model="mesh_match">Textured Mesh</button>
+                  <button class="button" data-model="mesh_match">Polygon-based CGH</button>
                   <button class="button" data-model="full_matched">Full GWS</button>
                   <button class="button" data-model="fast_1M">Fast GWS</button>
                 </div>
