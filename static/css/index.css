@@ -362,6 +362,11 @@ body {
   grid-row: span 12;
 }
 
+/* Editing: make portrait tiles slightly taller */
+.collage.collage--editing .collage-item.portrait {
+  grid-row: span 32;
+}
+
 /* base card */
 .collage-item {
   display: block;
@@ -379,7 +384,7 @@ body {
 /* Portrait: 6 columns wide, 2x height of landscape */
 .collage-item.portrait {
   grid-column: span 4; /* align with landscape width */
-  grid-row: span 32;   /* make 'span 30' to be exactly 2x landscape height */
+  grid-row: span 30;   /* make 'span 30' to be exactly 2x landscape height */
 }
 
 /* Square: same width as landscape, intermediate height */
@@ -421,6 +426,28 @@ body {
 .collage.collage--editing .collage-item:hover img {
   transform: scale(1); /* zoom out to show full image */
   object-fit: contain;
+}
+
+/* Editing prompt overlay */
+.collage.collage--editing .prompt-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 8px 15px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 180ms ease, opacity 180ms ease;
+  pointer-events: none; /* don't block link clicks */
+}
+
+.collage.collage--editing .collage-item:hover .prompt-overlay {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /* No height crop for landscape; keep at least 75% width */

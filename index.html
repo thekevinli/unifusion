@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="A novel algorithm to convert optimized 2D Gaussians from Gaussian splatting to holograms.">
-  <meta name="keywords" content="holography, holographic displays, gaussian splatting, neural rendering, 3DGS, wave propagation">
+        content="UniFusion proposes a framework which uses VLMs as unified encoders for image generation and editing.">
+  <meta name="keywords" content="vision-language model, VLM, diffusion transformer, flow matching, image generation, image editing, unified models, unifusion">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>UniFusion</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -146,7 +146,7 @@
       </div>
       <!-- <p class="has-text-centered is-7" style="margin-top: 5px; margin-bottom: 5px;"><strong>UniFusion Architecture</strong></p> -->
       <h2 class="subtitle has-text-centered">
-        <strong>UniFusion</strong> is the first architecture that uses only VLM as input-condition encoder without auxiliary signals from VAE or CLIP to do editing. The unified encoder framework and our proposed Layerwise Attention Pooling (LAP) module enables emergent capabilities such as <strong>zero-shot multi-ref generation</strong> when trained on single-reference pairs, and capability transfer where training on Editing helps T2I quantitatively and qualitatively.
+        <strong>UniFusion</strong> is the first architecture that uses only VLM as input-condition encoder without auxiliary signals from VAE or CLIP to do editing. The unified encoder framework and our proposed Layerwise Attention Pooling (LAP) module enables emergent capabilities such as <strong>zero-shot multi-reference generation</strong> when trained on single-reference pairs, and capability transfer where training on Editing helps T2I quantitatively and qualitatively.
       </h2>
     </div>
   </div>
@@ -209,38 +209,53 @@
     </h2>
     <div class="collage collage--editing" id="image-collage-editing">
     <!-- <div class="collage" id="image-collage"> -->
-      <a class="collage-item portrait" href="./static/images/single_ref_editing/portrait_005_character_repose.png">
-        <img src="./static/images/single_ref_editing/portrait_005_character_repose.png" alt="portrait_005_character_repose" loading="lazy">
+      <a class="collage-item portrait" href="./static/images/single_ref_editing/portrait_005_character_repose_cropped.png">
+        <img src="./static/images/single_ref_editing/portrait_005_character_repose_cropped.png" alt="portrait_005_character_repose" loading="lazy">
+        <div class="prompt-overlay">a photo of this cat swimming in a river in a jungle, go pro action footage</div>
       </a>
       <a class="collage-item portrait" href="./static/images/single_ref_editing/portrait_001_color_change.png">
         <img src="./static/images/single_ref_editing/portrait_001_color_change.png" alt="portrait_001_color_change" loading="lazy">
+        <div class="prompt-overlay">change the color to the wall of the house to yellow</div>
       </a>
       <a class="collage-item landscape" href="./static/images/single_ref_editing/landscape_001_text_editing.png">
         <img src="./static/images/single_ref_editing/landscape_001_text_editing.png" alt="landscape_001_text_editing" loading="lazy">
+        <div class="prompt-overlay">change the words to say "watch out above you"</div>
       </a>
       <a class="collage-item landscape" href="./static/images/single_ref_editing/landscape_002_character_repose.png">
         <img src="./static/images/single_ref_editing/landscape_002_character_repose.png" alt="landscape_002_character_repose" loading="lazy">
+        <div class="prompt-overlay">Using the reference portrait as identity, generate a new image of the same woman throwing pottery at a wheel in a rustic studio. Keep facial features, hair color/part, approximate age, and skin texture consistent. Hands should be clay-smeared; add soft daylight from a high window plus a warm rim light from camera right. 35 mm, f/2.0, chest-level angle</div>
       </a>
       <a class="collage-item square" href="./static/images/single_ref_editing/square_001_expression_change.png">
         <img src="./static/images/single_ref_editing/square_001_expression_change.png" alt="square_001_expression_change" loading="lazy">
+        <div class="prompt-overlay">change this character to smiling</div>
       </a>
       <a class="collage-item portrait" href="./static/images/single_ref_editing/portrait_002_character_repose.png">
         <img src="./static/images/single_ref_editing/portrait_002_character_repose.png" alt="portrait_002_character_repose" loading="lazy">
+        <div class="prompt-overlay">Generate an image of this photo showing the whole body of the subject. The subject is wearing a fluffy white headband.</div>
       </a>
       <a class="collage-item landscape" href="./static/images/single_ref_editing/landscape_003_text_editing.png">
         <img src="./static/images/single_ref_editing/landscape_003_text_editing.png" alt="landscape_003_text_editing" loading="lazy">
+        <div class="prompt-overlay">change the "STOP" to "START"</div>
       </a>
       <a class="collage-item portrait" href="./static/images/single_ref_editing/portrait_003_object_extraction.png">
         <img src="./static/images/single_ref_editing/portrait_003_object_extraction.png" alt="portrait_003_object_extraction" loading="lazy">
+        <div class="prompt-overlay">Isolate only the rosemary on yellow background</div>
       </a>
       <a class="collage-item landscape" href="./static/images/single_ref_editing/landscape_004_stylization.png">
         <img src="./static/images/single_ref_editing/landscape_004_stylization.png" alt="landscape_004_stylization" loading="lazy">
+        <div class="prompt-overlay">Using this style make some art of a boat in the harbor of an old town</div>
       </a>
       <a class="collage-item portrait" href="./static/images/single_ref_editing/portrait_004_character_repose.png">
         <img src="./static/images/single_ref_editing/portrait_004_character_repose.png" alt="portrait_004_character_repose" loading="lazy">
+        <div class="prompt-overlay">Same woman in a modern lab wearing a white coat and nitrile gloves, holding a pipette near a rack; match facial structure and hair color; neutral white balance.</div>
       </a>
-      <a class="collage-item landscape" href="./static/images/single_ref_editing/portrait_006_extraction_change_ar.png">
+      <!-- <a class="collage-item landscape" href="./static/images/single_ref_editing/portrait_006_extraction_change_ar.png">
         <img src="./static/images/single_ref_editing/portrait_006_extraction_change_ar.png" alt="portrait_006_extraction_change_ar" loading="lazy">
+        <div class="prompt-overlay">Place the dog on a white background</div>
+      </a> -->
+      <a class="collage-item landscape" href="./static/images/single_ref_editing/landscape_005_extraction_change_ar.png">
+        <img src="./static/images/single_ref_editing/landscape_005_extraction_change_ar.png" alt="landscape_005_extraction_change_ar" loading="lazy">
+        <div class="prompt-overlay">add earrings to a white marble round stand, add delicate shadows in the background of the flowers, place a white rose next to the stand</div>
       </a>
     </div>
   </div>
