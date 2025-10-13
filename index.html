@@ -57,11 +57,11 @@
               <a href="">Ajinkya Kale</a>
             </span>
             <!-- <p style="font-size: smaller;">*Equal contributions</p> -->
-            <p style="font-size: smaller;margin-top: 4px; margin-bottom: 4px;">* Kevin led the model design and ablations. Manuel led the evaluation and paper writing.</p>
+            <p style="font-size: .9rem; margin-top: 4px; margin-bottom: 4px;">* Equal contributions. Kevin led the model design and ablations. Manuel led the evaluation and paper writing.</p>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Adobe Applied Research</span>
+            <span class="author-block">Adobe</span>
           </div>
 
           <div class="column has-text-centered">
@@ -144,14 +144,9 @@
           <img id="teaser-thumbnail" src="./static/images/unifusion_arch.png" alt="UniFusion Architecture" />
         </div>
       </div>
-      <p class="has-text-centered is-7" style="margin-top: 5px; margin-bottom: 5px;"><strong>UniFusion Architecture.</strong></p>
-      <!-- <div class="buttons is-centered">
-        <button class="button is-active-teaser" id="teaser-button-garden" onclick="selectTeaserScene('garden')">Garden</button>
-        <button class="button" id="teaser-button-kitchen" onclick="selectTeaserScene('kitchen')">Kitchen</button>
-        <button class="button" id="teaser-button-materials" onclick="selectTeaserScene('materials')">Materials</button>
-      </div> -->
+      <!-- <p class="has-text-centered is-7" style="margin-top: 5px; margin-bottom: 5px;"><strong>UniFusion Architecture</strong></p> -->
       <h2 class="subtitle has-text-centered">
-        We present UniFusion, a diffusion-based generative model conditioned on a frozen large vision-language model (VLM) that serves as a unified multimodal encoder. Although recent advances in visual generation have been remarkable, most existing architectures still depend on distinct encoders for images (e.g., Variational Autoencoder i.e. VAE features) and text (e.g., T5 or CLIP). This separation constrains diffusion models’ ability to perform cross-modal reasoning and knowledge transfer. Prior attempts to bridge this gap often perform shallow fusion of information from VLM without enough generalization, employ multiple visual encoders, or train large unified VLMs jointly for text and image generation—approaches that demand substantial computational resources and large-scale data, limiting accessibility. To reap the benefits of the joint multimodal reasoning and representation capacity of VLMs, we propose UniFusion. 
+        <strong>UniFusion</strong> is the first architecture that uses only VLM as input-condition encoder without auxiliary signals from VAE or CLIP to do editing. The unified encoder framework and our proposed Layerwise Attention Pooling (LAP) module enables emergent capabilities such as <strong>zero-shot multi-ref generation</strong> when trained on single-reference pairs, and capability transfer where training on Editing helps T2I quantitatively and qualitatively.
       </h2>
     </div>
   </div>
@@ -159,12 +154,105 @@
 
 
 
+<section class="section">
+  <!-- Text-to-Image Results -->
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Text-to-Image Results</h2>
+    <div class="collage" id="image-collage">
+      <a class="collage-item portrait" href="./static/images/text_to_image/portrait_unifusion_zeroshot_768x1080.png">
+        <img src="./static/images/text_to_image/portrait_unifusion_zeroshot_768x1080.png" alt="portrait_unifusion_zero_shot" loading="lazy">
+      </a>
+      <a class="collage-item landscape" href="./static/images/text_to_image/landscape_0.png">
+        <img src="./static/images/text_to_image/landscape_0.png" alt="landscape_0" loading="lazy">
+      </a>
+      <a class="collage-item landscape" href="./static/images/text_to_image/landscape_0009_0000-2.png">
+        <img src="./static/images/text_to_image/landscape_0009_0000-2.png" alt="landscape_0009_0000-2" loading="lazy">
+      </a>
+      <a class="collage-item landscape" href="./static/images/text_to_image/landscape_8.png">
+        <img src="./static/images/text_to_image/landscape_8.png" alt="landscape_8" loading="lazy">
+      </a>
+      <!-- <a class="collage-item portrait" href="./static/images/text_to_image/portrait_18.png">
+        <img src="./static/images/text_to_image/portrait_18.png" alt="portrait_18" loading="lazy">
+      </a> -->
+      <a class="collage-item landscape" href="./static/images/text_to_image/landscape_11.png">
+        <img src="./static/images/text_to_image/landscape_11.png" alt="landscape_11" loading="lazy">
+      </a>
+      <a class="collage-item landscape" href="./static/images/text_to_image/landscape_13.png">
+        <img src="./static/images/text_to_image/landscape_13.png" alt="landscape_13" loading="lazy">
+      </a>
+      <a class="collage-item landscape" href="./static/images/text_to_image/landscape_14.png">
+        <img src="./static/images/text_to_image/landscape_14.png" alt="landscape_14" loading="lazy">
+      </a>
+      <a class="collage-item portrait" href="./static/images/text_to_image/portrait_3_512x720.png">
+        <img src="./static/images/text_to_image/portrait_3_512x720.png" alt="portrait_3" loading="lazy">
+      </a>
+      <!-- <a class="collage-item portrait" href="./static/images/text_to_image/portrait_7.png">
+        <img src="./static/images/text_to_image/portrait_7.png" alt="portrait_7" loading="lazy">
+      </a> -->
+      <a class="collage-item landscape" href="./static/images/text_to_image/landscape_18.png">
+        <img src="./static/images/text_to_image/landscape_18.png" alt="landscape_18" loading="lazy">
+      </a>
+      <a class="collage-item landscape" href="./static/images/text_to_image/landscape_20.png">
+        <img src="./static/images/text_to_image/landscape_20.png" alt="landscape_20" loading="lazy">
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <!-- Text-to-Image Results -->
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Single-reference editing results</h2>
+    <h2 class="subtitle has-text-centered">
+      Hover to see the full edited image and instruction prompts.
+    </h2>
+    <div class="collage collage--editing" id="image-collage-editing">
+    <!-- <div class="collage" id="image-collage"> -->
+      <a class="collage-item portrait" href="./static/images/single_ref_editing/portrait_005_character_repose.png">
+        <img src="./static/images/single_ref_editing/portrait_005_character_repose.png" alt="portrait_005_character_repose" loading="lazy">
+      </a>
+      <a class="collage-item portrait" href="./static/images/single_ref_editing/portrait_001_color_change.png">
+        <img src="./static/images/single_ref_editing/portrait_001_color_change.png" alt="portrait_001_color_change" loading="lazy">
+      </a>
+      <a class="collage-item landscape" href="./static/images/single_ref_editing/landscape_001_text_editing.png">
+        <img src="./static/images/single_ref_editing/landscape_001_text_editing.png" alt="landscape_001_text_editing" loading="lazy">
+      </a>
+      <a class="collage-item landscape" href="./static/images/single_ref_editing/landscape_002_character_repose.png">
+        <img src="./static/images/single_ref_editing/landscape_002_character_repose.png" alt="landscape_002_character_repose" loading="lazy">
+      </a>
+      <a class="collage-item square" href="./static/images/single_ref_editing/square_001_expression_change.png">
+        <img src="./static/images/single_ref_editing/square_001_expression_change.png" alt="square_001_expression_change" loading="lazy">
+      </a>
+      <a class="collage-item portrait" href="./static/images/single_ref_editing/portrait_002_character_repose.png">
+        <img src="./static/images/single_ref_editing/portrait_002_character_repose.png" alt="portrait_002_character_repose" loading="lazy">
+      </a>
+      <a class="collage-item landscape" href="./static/images/single_ref_editing/landscape_003_text_editing.png">
+        <img src="./static/images/single_ref_editing/landscape_003_text_editing.png" alt="landscape_003_text_editing" loading="lazy">
+      </a>
+      <a class="collage-item portrait" href="./static/images/single_ref_editing/portrait_003_object_extraction.png">
+        <img src="./static/images/single_ref_editing/portrait_003_object_extraction.png" alt="portrait_003_object_extraction" loading="lazy">
+      </a>
+      <a class="collage-item landscape" href="./static/images/single_ref_editing/landscape_004_stylization.png">
+        <img src="./static/images/single_ref_editing/landscape_004_stylization.png" alt="landscape_004_stylization" loading="lazy">
+      </a>
+      <a class="collage-item portrait" href="./static/images/single_ref_editing/portrait_004_character_repose.png">
+        <img src="./static/images/single_ref_editing/portrait_004_character_repose.png" alt="portrait_004_character_repose" loading="lazy">
+      </a>
+      <a class="collage-item landscape" href="./static/images/single_ref_editing/portrait_006_extraction_change_ar.png">
+        <img src="./static/images/single_ref_editing/portrait_006_extraction_change_ar.png" alt="portrait_006_extraction_change_ar" loading="lazy">
+      </a>
+    </div>
+  </div>
+</section>
+
+ 
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="carousel-label" class="column is-full-width">
         <div class="column has-text-centered">
-          <h2 class="title is-4">Experimentally Captured Focal Stacks of GWS Holograms</h2>
+          <h2 class="title is-4">Zero-shot multi-reference generations</h2>
         </div>
       </div>
       <div id="carousel-div" class="carousel results-carousel">
@@ -240,24 +328,15 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            State-of-the-art neural rendering methods optimize a Gaussian-based scene representation from a few photographs 
-            for novel-view synthesis. Building on these representations, we develop efficient algorithms,
-             dubbed Gaussian Wave Splatting, to turn these Gaussians into holograms. Unlike existing computer-generated holography (CGH), 
-             Gaussian Wave Splatting supports accurate occlusions and view-dependent effects for photorealistic scenes 
-             by leveraging recent advances in neural rendering.  
+            We present UniFusion, a diffusion-based generative model conditioned on a frozen large vision-language model (VLM) that serves as a unified multimodal encoder. Although recent advances in visual generation have been remarkable, most existing architectures still depend on distinct encoders for images (e.g., Variational Autoencoder i.e. VAE features) and text (e.g., T5 or CLIP). This separation constrains diffusion models’ ability to perform cross-modal reasoning and knowledge transfer. Prior attempts to bridge this gap often perform shallow fusion of information from VLM without enough generalization, employ multiple visual encoders, or train large unified VLMs jointly for text and image generation—approaches that demand substantial computational resources and large-scale data, limiting accessibility. To reap the benefits of the joint multimodal reasoning and representation capacity of VLMs, we propose UniFusion. 
           </p>
 
-          <p>
+          <!-- <p>
             Specifically, we derive a closed-form solution for a 2D Gaussian-to-hologram transform that supports 
             occlusions and alpha blending. Inspired by classic computer graphics techniques, we also derive an efficient 
             approximation of the aforementioned process in the Fourier domain that is easily parallelizable and 
             implement it using custom CUDA kernels. 
-          </p>
-          
-          <p>
-            By integrating emerging neural rendering pipelines with holographic display technology, 
-            our Gaussian-based CGH framework paves the way for next-generation holographic displays.
-          </p>
+          </p> -->
         </div>
       </div>
     </div>
@@ -270,7 +349,7 @@
 <!-- Model Pipeline. -->
 <div class="columns is-centered has-text-centered">
   <div class="column is-full-width">
-    <h2 class="title is-3">Overview</h2>
+    <h2 class="title is-3">Method Overview</h2>
     <div class="content has-text-centered">
       <img src="./static/images/overview.svg" style="width: 100%;">
     </div>

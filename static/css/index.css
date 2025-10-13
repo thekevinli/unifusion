@@ -35,6 +35,15 @@ video {
   border: 0.2rem solid black;
 }
 
+/* Ensure teaser image spans width */
+.teaser-video-wrapper img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
 
 .button {
   white-space: normal; /* allow multiline text */
@@ -92,6 +101,12 @@ body {
 
 .teaser {
   font-family: 'Google Sans', sans-serif;
+}
+
+/* Widen teaser section container */
+.hero.teaser .container.is-max-desktop {
+  max-width: 1400px; /* expand from Bulma's default */
+  width: 100%;
 }
 
 
@@ -326,4 +341,105 @@ body {
     display: flex;
     flex-direction: column;
   }
+}
+
+/* collage: grid-based for perfect rectangle */
+.collage {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* default: 3 columns */
+  grid-auto-rows: 6.4px; /* shrink overall height by additional 20% */
+  gap: 12px;
+  grid-auto-flow: dense;
+}
+
+/* Editing collage: 2 columns (each tile spans 4 of 8) */
+.collage.collage--editing {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+/* Editing: make landscape tiles a bit shorter */
+.collage.collage--editing .collage-item.landscape {
+  grid-row: span 12;
+}
+
+/* base card */
+.collage-item {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px; /* rounded corners on each tile */
+}
+
+/* Landscape: 3 columns wide, base height */
+.collage-item.landscape {
+  grid-column: span 4; /* 3 per row */
+  grid-row: span 15;   /* base height */
+}
+
+/* Portrait: 6 columns wide, 2x height of landscape */
+.collage-item.portrait {
+  grid-column: span 4; /* align with landscape width */
+  grid-row: span 32;   /* make 'span 30' to be exactly 2x landscape height */
+}
+
+/* Square: same width as landscape, intermediate height */
+.collage-item.square {
+  grid-column: span 4;
+  grid-row: span 20; /* approx square tile */
+}
+
+/* Make mobile/tablet responsive */
+@media screen and (max-width: 1023px) {
+  .collage { grid-template-columns: repeat(8, 1fr); }
+  .collage-item { grid-column: span 8; } /* 1 column on tablet */
+}
+@media screen and (max-width: 640px) {
+  .collage { grid-template-columns: repeat(4, 1fr); }
+  .collage-item { grid-column: span 4; } /* 1 column on mobile */
+}
+
+
+/* Default image style */
+.collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 0;
+  border: 0;
+  transition: transform 160ms ease;
+}
+
+/* Editing section: show ~80% (allow ~20% crop) and keep rounded corners via parent */
+.collage.collage--editing .collage-item img {
+  object-fit: cover; /* slight crop by default */
+  transform: scale(1.0526); /* ~95% visible when not hovered */
+  transform-origin: center center;
+}
+
+.collage.collage--editing .collage-item:hover img {
+  transform: scale(1); /* zoom out to show full image */
+  object-fit: contain;
+}
+
+/* No height crop for landscape; keep at least 75% width */
+.collage-item.landscape img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* No width crop for portrait; keep at least 75% height */
+.collage-item.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collage-item img {
+  transform: scale(1.0526); /* default ~95% visible */
+}
+.collage-item:hover img {
+  transform: scale(1); /* zoom out to show full image */
 }
