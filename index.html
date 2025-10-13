@@ -34,33 +34,34 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
-            <span style="font-weight: 900;">Gaussian Wave Splatting</span><br><span style="font-weight: 100;">for Computer-generated Holography</span>
+            <!-- <span style="font-weight: 900;">UniFusion</span><br><span style="font-weight: 100;">Vision-Language Model as Unified Encoder for Image Generation</span> -->
+            <span style="font-weight: 900;">UniFusion</span>
           </h1>
+          <h2 class="title is-2 publication-title">
+            <span style="font-weight: 100;">Vision-Language Model as Unified Encoder for Image Generation</span>
+          </h2>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://choisuyeon.github.io">Suyeon Choi</a>*
+              <a href="https://thekevinli.github.io">Kevin (Yu-Teng) Li</a>*
             </span>
             <span class="author-block">
-              <a href="https://bchao1.github.io">Brian Chao</a>*
+              <a href="">Manuel Brack</a>*
             </span>
             <span class="author-block">
-              <a href="">Jackie Yang</a>
+              <a href="">Sudeep Katakol</a>
             </span>
             <span class="author-block">
-              <a href="https://manugopa.github.io">Manu Gopakumar</a>
+              <a href="">Hareesh Ravi</a>
             </span>
             <span class="author-block">
-              <a href="https://web.stanford.edu/~gordonwz/">Gordon Wetzstein</a>
+              <a href="">Ajinkya Kale</a>
             </span>
-            <p style="font-size: smaller;">*equal contribution</p>
+            <!-- <p style="font-size: smaller;">*Equal contributions</p> -->
+            <p style="font-size: smaller;margin-top: 4px; margin-bottom: 4px;">* Kevin led the model design and ablations. Manuel led the evaluation and paper writing.</p>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Stanford University</span>
-          </div>
-
-          <div class="is-size-4 publication-authors">
-            <span class="author-block"><em>SIGGRAPH 2025 (Journal Track)</em></span>
+            <span class="author-block">Adobe Applied Research</span>
           </div>
 
           <div class="column has-text-centered">
@@ -79,7 +80,7 @@
               <!-- Arxiv Link. -->
               
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2505.06582"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -89,7 +90,7 @@
               </span>
               
               <!-- Video Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=ttDCDbhEf7Q"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -97,9 +98,9 @@
                   </span>
                   <span>Video</span>
                 </a>
-              </span>
+              </span> -->
               
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://drive.google.com/drive/folders/15FvHyIU-k80BaLLSV0zGOM_WidRPoo4U"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -107,7 +108,7 @@
                   </span>
                   <span>Paper (High-Res & Compressed)</span>
                 </a>
-              </span>
+              </span> -->
               
               <!--
               <span class="link-block">
@@ -140,23 +141,17 @@
     <div class="hero-body">
       <div class="teaser-video-container">
         <div class="teaser-video-wrapper" id="teaser-video-wrapper">
-          <video id="teaser-video" preload="auto" autoplay loop muted playsinline>
-            <source src="static/videos/garden_nvs_focal_stack.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img id="teaser-thumbnail" src="./static/images/unifusion_arch.png" alt="UniFusion Architecture" />
         </div>
       </div>
-      <p class="has-text-centered is-8" style="margin-top: 10px; margin-bottom: 10px;"><strong>Experimentally captured 3D focal stacks of generated holograms on a holographic display prototype.</strong><br> (hover over the video to pause)</p>
-      <div class="buttons is-centered">
+      <p class="has-text-centered is-7" style="margin-top: 5px; margin-bottom: 5px;"><strong>UniFusion Architecture.</strong></p>
+      <!-- <div class="buttons is-centered">
         <button class="button is-active-teaser" id="teaser-button-garden" onclick="selectTeaserScene('garden')">Garden</button>
         <button class="button" id="teaser-button-kitchen" onclick="selectTeaserScene('kitchen')">Kitchen</button>
         <button class="button" id="teaser-button-materials" onclick="selectTeaserScene('materials')">Materials</button>
-      </div>
+      </div> -->
       <h2 class="subtitle has-text-centered">
-        Emerging Gaussian splatting techniques take a few casually captured photographs as 
-        input and output a Gaussian scene representation. <strong>Gaussian Wave Splatting (GWS) </strong> 
-        turns these types of representations into holograms that can be 
-        directly displayed on emerging holographic displays. 
+        We present UniFusion, a diffusion-based generative model conditioned on a frozen large vision-language model (VLM) that serves as a unified multimodal encoder. Although recent advances in visual generation have been remarkable, most existing architectures still depend on distinct encoders for images (e.g., Variational Autoencoder i.e. VAE features) and text (e.g., T5 or CLIP). This separation constrains diffusion models’ ability to perform cross-modal reasoning and knowledge transfer. Prior attempts to bridge this gap often perform shallow fusion of information from VLM without enough generalization, employ multiple visual encoders, or train large unified VLMs jointly for text and image generation—approaches that demand substantial computational resources and large-scale data, limiting accessibility. To reap the benefits of the joint multimodal reasoning and representation capacity of VLMs, we propose UniFusion. 
       </h2>
     </div>
   </div>
