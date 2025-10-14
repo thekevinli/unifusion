@@ -182,7 +182,7 @@ $(document).ready(function() {
       const dots = document.createElement('div');
       dots.style.position = 'absolute';
       dots.style.left = '50%';
-      dots.style.bottom = '10px';
+      dots.style.bottom = '2px';
       dots.style.transform = 'translateX(-50%)';
       dots.style.display = 'flex';
       dots.style.gap = '8px';
@@ -220,8 +220,8 @@ $(document).ready(function() {
         el.style.userSelect = 'none';
         el.style.zIndex = '3';
       });
-      left.style.left = '10px';
-      right.style.right = '10px';
+      left.style.left = '1rem';
+      right.style.right = '1rem';
       left.textContent = '‹';
       right.textContent = '›';
       left.addEventListener('click', () => goTo(idx - 1));

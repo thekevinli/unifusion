@@ -367,12 +367,14 @@ body {
 
 /* Editing: make landscape tiles a bit shorter */
 .collage.collage--editing .collage-item.landscape {
+  grid-column: span 4;
   /* grid-row: span 12; */
   grid-row: span 10;
 }
 
 /* Editing: make portrait tiles slightly taller */
 .collage.collage--editing .collage-item.portrait {
+  grid-column: span 4;
   /* grid-row: span 32; */
   grid-row: span 20;
 }
@@ -391,9 +393,15 @@ body {
   grid-row: span 13;   /* base height */
 }
 
+/* Wide Portrait: 3 columns wide, 2x height of landscape */
+.collage-item.wide-portrait {
+  grid-column: span 4; /* align with landscape width */
+  grid-row: span 26;   /* make 'span 30' to be exactly 2x landscape height */
+}
+
 /* Portrait: 6 columns wide, 2x height of landscape */
 .collage-item.portrait {
-  grid-column: span 4; /* align with landscape width */
+  grid-column: span 2; /* align with landscape width */
   grid-row: span 26;   /* make 'span 30' to be exactly 2x landscape height */
 }
 

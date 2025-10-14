@@ -160,7 +160,7 @@
   <div class="container">
     <h2 class="title is-3 has-text-centered">Text-to-Image Results</h2>
     <div class="collage" id="image-collage">
-      <a class="collage-item portrait" href="./static/images/text_to_image/portrait_unifusion_zeroshot_768x1080.png">
+      <a class="collage-item wide-portrait" href="./static/images/text_to_image/portrait_unifusion_zeroshot_768x1080.png">
         <img src="./static/images/text_to_image/portrait_unifusion_zeroshot_768x1080.png" alt="portrait_unifusion_zero_shot" loading="lazy">
       </a>
       <a class="collage-item landscape" href="./static/images/text_to_image/landscape_18.png">
@@ -175,9 +175,6 @@
       <a class="collage-item landscape" href="./static/images/text_to_image/landscape_8.png">
         <img src="./static/images/text_to_image/landscape_8.png" alt="landscape_8" loading="lazy">
       </a>
-      <!-- <a class="collage-item portrait" href="./static/images/text_to_image/portrait_18.png">
-        <img src="./static/images/text_to_image/portrait_18.png" alt="portrait_18" loading="lazy">
-      </a> -->
       <a class="collage-item landscape" href="./static/images/text_to_image/landscape_11.png">
         <img src="./static/images/text_to_image/landscape_11.png" alt="landscape_11" loading="lazy">
       </a>
@@ -187,11 +184,14 @@
       <a class="collage-item landscape" href="./static/images/text_to_image/landscape_14.png">
         <img src="./static/images/text_to_image/landscape_14.png" alt="landscape_14" loading="lazy">
       </a>
-      <!-- <a class="collage-item portrait" href="./static/images/text_to_image/portrait_3_512x720.png">
+      <a class="collage-item portrait" href="./static/images/text_to_image/portrait_3_512x720.png">
         <img src="./static/images/text_to_image/portrait_3_512x720.png" alt="portrait_3" loading="lazy">
-      </a> -->
-      <a class="collage-item portrait" href="./static/images/text_to_image/portr1.png.png">
+      </a>
+      <!-- <a class="collage-item portrait" href="./static/images/text_to_image/portrait_1.png">
         <img src="./static/images/text_to_image/portrait_1.png" alt="portrait_1" loading="lazy">
+      </a> -->
+      <a class="collage-item portrait" href="./static/images/text_to_image/portrait_18.png">
+        <img src="./static/images/text_to_image/portrait_18.png" alt="portrait_18" loading="lazy">
       </a>
       <!-- <a class="collage-item portrait" href="./static/images/text_to_image/portrait_7.png">
         <img src="./static/images/text_to_image/portrait_7.png" alt="portrait_7" loading="lazy">
@@ -332,29 +332,7 @@
     </div>
     <div class="content has-text-justified">
       <p>
-        Basically talk about LAP being the best among all 4 conditioning schema, and that Llama itself is not a drop in replacement. Then lead to InternVL being better
-        <strong>Gaussian Wave Splatting (GWS)</strong> takes a set of optimized <a href="https://surfsplatting.github.io/">2D Gaussians </a> 
-        as input and outputs a hologram that can be directly displayed on emerging holographic displays. In the high level,
-        each 2D Gaussian primitive is illuminated by a coherent illumination source, and the resulting illuminated and propagated wavefront 
-        is recorded on a spatial light modulator (SLM) to generate the hologram. Since the parameters of the Gaussians already explicitly encode 3D informtation, 
-        further splatting Gaussians using a physically-accurate wave propagation model allows for the direct reconstruction of 
-        3D focal stacks with natural defocus blur when viewed on a holographic display.
-      </p>
-    </div>
-    <div class="content has-text-justified">
-      <p>
-        Aside from deriving the exact mathematical formulation of the Fourier spectrum of arbitrarily oriented 2D Gaussians for splatting, 
-        we also derived the wave optics-counterpart of alpha blending (right) for Gaussian primitives, which is the major building block in 
-        the original geometric optics-based Gaussian splatting pipeline (left) to accurately model occlusion.
-      </p>
-    </div>
-    <div class="content has-text-justified">
-      <p class="has-text-centered" style="font-size: smaller;">(hover over the videos to pause)</p>
-      <p>
-        GWS achieves superior 3D focal stack reconstruction quality compared to prior primitives-based computer generated holography 
-        algorithms based on point clouds and per-face textured meshes (polygon-based CGH). We also designed a fast variant of GWS based on an approximated 
-        volume rendering image formation model inspired by order-invariant transparency (OIT) in traditional computer graphics.
-        We implemented custom CUDA kernels for this fast GWS variant, achieving a 30X speedup compared the full, exact GWS with only a small drop in image quality.
+        We begin by ablating four conditioning strategies — including the conventional last-layer, key-value fusion, and hidden-state injection — and find that Layerwise Attention Pooling (LAP) consistently performs best across tasks. However, LAP alone is not a simple drop-in replacement to surpass T5, especially when the base model (e.g., Llama 3.1-8B) contains insufficient capacity. By switching to InternVL 2.5-8B in later section, which provides richer joint representations, we match and even exceed T5 performance once paired with our VeriFi rewriting mechanism, achieving both stronger prompt alignment and improved visual grounding.
       </p>
     </div>
   </div>
@@ -407,7 +385,7 @@
         <strong>UniFusion</strong> achieves competitive performance on DPG-Bench against much larger models trained on more data. We report average and best generation across four seeds at 1024px resolution. Macro Average is taken as mean over scores per category, whereas Micro averages scores across all prompts. Results are scored by Gemma-3-27B with extensive CoT to reduce hallucinations in scoring.
       </p>
       <div class="content has-text-centered">
-        <img src="./static/images/t2i_dpg_bench.png" style="width: 100%;">
+        <img src="./static/images/t2i_dpg_bench.png" style="width: 80%;">
       </div>
     </div>
   </div>
