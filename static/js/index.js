@@ -147,7 +147,8 @@ $(document).ready(function() {
       root.dataset.carouselInitialized = '1';
       root.style.position = 'relative';
       root.style.overflow = 'hidden';
-      const slides = Array.from(root.querySelectorAll(':scope > .item, :scope > div'));
+      // Use robust child collection instead of :scope selector (better CDN/older browser compatibility)
+      const slides = Array.from(root.children).filter(el => el.classList.contains('item') || el.tagName === 'DIV');
       if (slides.length === 0) return;
       let idx = 0;
 

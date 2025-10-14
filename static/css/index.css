@@ -362,17 +362,19 @@ body {
 
 /* Editing collage: 2 columns (each tile spans 4 of 8) */
 .collage.collage--editing {
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(12, 1fr); /* 3 columns (each tile spans 4) */
 }
 
 /* Editing: make landscape tiles a bit shorter */
 .collage.collage--editing .collage-item.landscape {
-  grid-row: span 12;
+  /* grid-row: span 12; */
+  grid-row: span 10;
 }
 
 /* Editing: make portrait tiles slightly taller */
 .collage.collage--editing .collage-item.portrait {
-  grid-row: span 32;
+  /* grid-row: span 32; */
+  grid-row: span 20;
 }
 
 /* base card */
@@ -386,13 +388,13 @@ body {
 /* Landscape: 3 columns wide, base height */
 .collage-item.landscape {
   grid-column: span 4; /* 3 per row */
-  grid-row: span 15;   /* base height */
+  grid-row: span 13;   /* base height */
 }
 
 /* Portrait: 6 columns wide, 2x height of landscape */
 .collage-item.portrait {
   grid-column: span 4; /* align with landscape width */
-  grid-row: span 30;   /* make 'span 30' to be exactly 2x landscape height */
+  grid-row: span 26;   /* make 'span 30' to be exactly 2x landscape height */
 }
 
 /* Square: same width as landscape, intermediate height */
