@@ -203,8 +203,9 @@ body {
   justify-content: center;
 }
 
+.results-carousel { overflow: hidden; }
 .results-carousel .item {
-  margin: 5px;
+  margin: 0; /* prevent width overflow that causes bleed */
   overflow: hidden;
   padding: 0;
   font-size: 0;
@@ -213,15 +214,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
+.results-carousel img,
 .results-carousel video {
   margin: 0;
-  height: 60vh; /* Fixed height as requested */
+  height: 48vh; /* reduced ~20% from 60vh */
   object-fit: contain;
   max-width: 100%;
-  border: 0.2rem solid black;
+  border: 0; /* remove black edges */
 }
+
+/* Fallback carousel styles (if bulma-carousel fails) */
+/* simple fallback carousel (JS-managed) */
+#carousel-div .item { display: none; }
+#carousel-div .item.is-active { display: block; }
 
 
 .interpolation-panel {

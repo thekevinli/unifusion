@@ -126,72 +126,125 @@ $(document).ready(function() {
 
     // teaser
     const video = document.getElementById("teaser-video");
-
-    // Pause videos on hover
-    video.addEventListener("mouseenter", () => {
-      video.pause();
-    });
-
-    // Resume videos on leave
-    video.addEventListener("mouseleave", () => {
-      video.play();
-    });
-
-    var options = {
-			slidesToScroll: 1,
-			slidesToShow: 1,
-			loop: true,
-			infinite: true,
-			autoplay: false,
-			autoplaySpeed: 3000,
+    if (video) {
+      // Pause videos on hover
+      video.addEventListener("mouseenter", () => {
+        video.pause();
+      });
+      // Resume videos on leave
+      video.addEventListener("mouseleave", () => {
+        video.play();
+      });
     }
 
-    // carousel for the video
-    let carousel_div = document.getElementById("results-carousel");
-    var video_id_list = [
-      "room",
-      "stump",
-      "garden",
-      "kitchen",
-      "hotdog",
-      "lego",
-      "ship",
-      "materials",
-      "chair"
-    ];
-    for (var i = 0; i < video_id_list.length; i++) {
-        let video_element = document.getElementById(video_id_list[i]);
-        console.log(video_element);
-        video_element.addEventListener('mouseenter', () => {
-          video_element.pause();
-        });
-
-        // Play the video when the mouse leaves
-        video_element.addEventListener('mouseleave', () => {
-          video_element.play();
-        });
-    }
-
-		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
-    // Loop on each carousel initialized
-    for(var i = 0; i < carousels.length; i++) {
-    	carousels[i].on('before:show', state => {
-        console.log('before:show', state);
-    	});
-    }
-
-
-
-    // Access to bulmaCarousel instance of an element
-    var element = document.querySelector("#carousel-div");
-    if (element && element.bulmaCarousel) {
-    	// bulmaCarousel instance is available as element.bulmaCarousel
-    	element.bulmaCarousel.on('before:show', function(state) {
-    		console.log("before show", state);
-    	});
-    }
+    // Minimal, dependency-free image carousel (rotation + dots + arrows)
+    initImageCarousel('carousel-div', { delayMs: 2000 });
     bulmaSlider.attach();
+    
+    function initImageCarousel(rootId, { delayMs = 3000 } = {}) {
+      const root = document.getElementById(rootId);
+      if (!root || root.dataset.carouselInitialized === '1') return;
+      root.dataset.carouselInitialized = '1';
+      root.style.position = 'relative';
+      root.style.overflow = 'hidden';
+      const slides = Array.from(root.querySelectorAll(':scope > .item, :scope > div'));
+      if (slides.length === 0) return;
+      let idx = 0;
+
+      // Build sliding track
+      const track = document.createElement('div');
+      track.className = 'simple-track';
+      track.style.display = 'flex';
+      track.style.width = (slides.length * 100) + '%';
+      track.style.transition = 'transform 400ms ease';
+      track.style.willChange = 'transform';
+
+      // Move slides into track and size them
+      slides.forEach((s) => {
+        s.style.display = 'block';
+        s.style.flex = '0 0 100%';
+        s.style.width = '100%';
+        s.style.margin = '0';
+        s.style.boxSizing = 'border-box';
+        const img = s.querySelector('img');
+        if (img) {
+          img.style.width = '100%';
+          img.style.height = '100%';
+          img.style.objectFit = 'contain';
+          img.style.display = 'block';
+        }
+        track.appendChild(s);
+      });
+      root.appendChild(track);
+
+      // Dots
+      const dots = document.createElement('div');
+      dots.style.position = 'absolute';
+      dots.style.left = '50%';
+      dots.style.bottom = '10px';
+      dots.style.transform = 'translateX(-50%)';
+      dots.style.display = 'flex';
+      dots.style.gap = '8px';
+      dots.style.zIndex = '3';
+      const dotEls = slides.map((_, i) => {
+        const d = document.createElement('div');
+        d.style.width = '8px';
+        d.style.height = '8px';
+        d.style.borderRadius = '50%';
+        d.style.background = i === 0 ? '#222' : '#999';
+        d.style.opacity = i === 0 ? '1' : '.6';
+        d.style.cursor = 'pointer';
+        d.addEventListener('click', () => goTo(i));
+        dots.appendChild(d);
+        return d;
+      });
+      root.appendChild(dots);
+
+      // Arrows
+      const left = document.createElement('div');
+      const right = document.createElement('div');
+      [left, right].forEach(el => {
+        el.style.position = 'absolute';
+        el.style.top = '50%';
+        el.style.transform = 'translateY(-50%)';
+        el.style.width = '36px';
+        el.style.height = '36px';
+        el.style.lineHeight = '36px';
+        el.style.textAlign = 'center';
+        el.style.fontSize = '22px';
+        el.style.color = '#fff';
+        el.style.background = 'rgba(0,0,0,0.45)';
+        el.style.borderRadius = '18px';
+        el.style.cursor = 'pointer';
+        el.style.userSelect = 'none';
+        el.style.zIndex = '3';
+      });
+      left.style.left = '10px';
+      right.style.right = '10px';
+      left.textContent = '‹';
+      right.textContent = '›';
+      left.addEventListener('click', () => goTo(idx - 1));
+      right.addEventListener('click', () => goTo(idx + 1));
+      root.appendChild(left);
+      root.appendChild(right);
+
+      let timer = startTimer();
+      root.addEventListener('mouseenter', () => { clearInterval(timer); });
+      root.addEventListener('mouseleave', () => { timer = startTimer(); });
+
+      function startTimer() {
+        return setInterval(() => goTo(idx + 1), delayMs);
+      }
+
+      function goTo(next) {
+        dotEls[idx].style.background = '#999';
+        dotEls[idx].style.opacity = '.6';
+        idx = (next + slides.length) % slides.length;
+        track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+        dotEls[idx].style.background = '#222';
+        dotEls[idx].style.opacity = '1';
+      }
+    }
 })
 
 
