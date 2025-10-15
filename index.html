@@ -387,8 +387,17 @@
         <strong>UniFusion</strong> achieves competitive performance on DPG-Bench against much larger models trained on more data. We report average and best generation across four seeds at 1024px resolution. Macro Average is taken as mean over scores per category, whereas Micro averages scores across all prompts. Results are scored by Gemma-3-27B with extensive CoT to reduce hallucinations in scoring.
       </p>
       <div class="content has-text-centered">
-        <img src="./static/images/editing_comparison.png" style="width: 100%;">
+        <img src="./static/images/editing_comparison.png" style="width: 90%;">
       </div>
+      <div class="content has-text-centered">
+        <img src="./static/images/editing_ab_test_results.png" style="width: 100%;">
+      </div>
+      <p>
+        How does UniFusion do with just VLM-encoded images? In an AB test with 200 annotators across 448 prompts (1340 total votes) of diverse editing types (e.g. add/remove object, edit text, character repose, stylize...), UniFusion preserves identity more faithfully than Bagel and Qwen-Image-Edit, maintains superior visual quality compared to Bagel, and remains competitive on prompt and intent alignment despite being just an 8B model with a smaller training set.
+      </p>
+      <p>
+        (AB testing plot on editing will be included in the updated version of ArXiv shortly)
+      </p>
     </div>
   </div>
 </div>
