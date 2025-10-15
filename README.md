@@ -1,4 +1,4 @@
-# UniFusion: A Unified Encoder for Zero-shot Multi-reference Text-to-Image Generation
+# UniFusion: Vision-Language Model as Unified Encoder for Image Generation
 
 This is the repository that contains source code for [our project website](http://thekevinli.github.io/unifusion/).
 
@@ -6,7 +6,7 @@ Please consider citing our paper if you find our work useful:
 ```
 @article{li2025unifusion,
   author={Li, Yu-Teng and Brack, Manuel and Katakol, Sudeep and Ravi, Hareesh and Kale, Ajinkya},
-  title={UniFusion: A Unified Encoder for Zero-shot Multi-reference Text-to-Image Generation},
+  title={UniFusion: Vision-Language Model as Unified Encoder for Image Generation},
   journal={arXiv preprint arXiv:2505.06582},
   year={2025},
 }
