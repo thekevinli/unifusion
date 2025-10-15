@@ -1,13 +1,13 @@
-# Gaussian Wave Splatting for Computer Generated Holography (SIGGRAPH 2025)
+# UniFusion: A Unified Encoder for Zero-shot Multi-reference Text-to-Image Generation
 
-This is the repository that contains source code for [our project website](https://bchao1.github.io/gaussian-wave-splatting/). Our work will be presented at SIGGRAPH 2025.
+This is the repository that contains source code for [our project website](http://thekevinli.github.io/unifusion/).
 
 Please consider citing our paper if you find our work useful:
 ```
-@inproceedings{choi2025gaussianwavesplatting,
-  title={Gaussian Wave Splatting for Computer Generated Holography},
-  author={Suyeon Choi and Brian Chao and Jackie Yang and Manu Gopakumar and Gordon Wetzstein},
-  booktitle={ACM SIGGRAPH 2025},
+@article{li2025unifusion,
+  author={Li, Yu-Teng and Brack, Manuel and Katakol, Sudeep and Ravi, Hareesh and Kale, Ajinkya},
+  title={UniFusion: A Unified Encoder for Zero-shot Multi-reference Text-to-Image Generation},
+  journal={arXiv preprint arXiv:2505.06582},
   year={2025},
 }
 ```
