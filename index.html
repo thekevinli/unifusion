@@ -377,7 +377,7 @@
         <ul>
           <li>Different from standalone rewriter models, Verifi perform a single forward pass without re-encoding, which means the decoded text still attends to image and text inputs directly, aligning features between modalities better and grounding potential hallucination. </li>
           <li> Repetition of important tokens from the original prompt further mitigates "position biases" in causal attention - later tokens have less activation products. </li>
-          <li>While using the same system prompt during training, we can meaningfullly influence the model's behavior by adopting a different system prompt during inference.</li>
+          <li>While using the same system prompt during training, we can meaningfully influence the model's behavior by adopting a different system prompt during inference.</li>
         </ul>
       </p>
       <div class="content has-text-centered">
@@ -392,8 +392,11 @@
       <div class="content has-text-centered">
         <img src="./static/images/editing_ab_test_results.png" style="width: 100%;">
       </div>
+      <!-- <div class="content has-text-centered">
+        <img src="./static/images/edit_type_pie_chart.png" style="width: 80%;">
+      </div> -->
       <p>
-        How does UniFusion perform on editing with just VLM-encoded images? In an AB test with 200 annotators across 448 prompts (1340 total votes) of diverse editing types (e.g. add/remove object, edit text, character repose, stylize...), UniFusion preserves identity more faithfully than Bagel and Qwen-Image-Edit, maintains superior visual quality compared to Bagel, and remains competitive on prompt and intent alignment despite being just an 8B model with a smaller training set.
+        How does UniFusion perform on editing with just VLM-encoded images? In an AB test with 200 annotators across 448 prompts of diverse editing types (e.g. add/remove object, character repose, stylize...), UniFusion preserves identity more faithfully than Bagel and Qwen-Image-Edit, maintains superior visual quality compared to Bagel, and remains competitive on prompt match and intent preference despite being just an 8B model with a smaller training set. Part of the remaining gap can be attributed to missing data types such as "portrait retouch", which we retained in evaluation for fairness. The strong performance of UniFusion despite this highlights its strong potential when equipped with a more comprehensive training set.
       </p>
       <p>
         (AB testing plot on editing will be included in the updated version of ArXiv shortly)
@@ -415,7 +418,7 @@
     </div>
     <div class="content has-text-justified">
       <p>
-        UniFusion demonstrated significant improvements in prompt alignment for text-to-image generation after finetuning on editing tasks for just <em>11k steps</em>. Specifically, UniFusion-Edit leads UniFusion-Base by over 2 percentage points in Micro Avg of DPG-Bench. In an A/B test with 180 annotators across 616 prompts (2 seeds each), UniFusion-Edit achieves nearly double double the win rate of UniFusion-Base.
+        UniFusion demonstrated significant improvements in prompt alignment for text-to-image generation after finetuning on editing tasks for just <em>11k steps</em>. Specifically, UniFusion-Edit leads UniFusion-Base by over 2 percentage points in Micro Avg. of DPG-Bench. In an A/B test with 180 annotators across 616 prompts (2 seeds each), UniFusion-Edit achieves nearly double double the win rate of UniFusion-Base.
       </p>
       <p>
         We hypothesize that this improvement stems from the unified encoder framework. In a shared encoder space, concepts represented by different modalities become more semantically aligned compared to the conventional separation of VAE and T5 spaces. For DiT, this offers two theoretical benefits:
