@@ -395,7 +395,7 @@
         <img src="./static/images/edit_type_pie_chart.png" style="width: 80%;">
       </div> -->
       <p>
-        How does UniFusion perform on editing with just VLM-encoded images? In an AB test with 200 annotators across 448 prompts of diverse editing types (e.g. add/remove object, character repose, stylize...), UniFusion preserves identity more faithfully than Bagel and Qwen-Image-Edit, maintains superior visual quality compared to Bagel, and remains competitive on prompt match and intent preference despite being just an 8B model with a smaller training set. Part of the remaining gap can be attributed to missing data types such as "portrait retouch", which we retained in fair evaluation. The strong performance of UniFusion despite this highlights its potential when equipped with a more comprehensive dataset and scaled up in parameters.
+        How does UniFusion perform on editing with just VLM-encoded images? In an AB test with 200 annotators across 448 prompts of diverse editing types (e.g. add/remove object, character repose, stylize...), UniFusion preserves identity more faithfully than Bagel and Qwen-Image-Edit, maintains superior visual quality compared to Bagel, and remains competitive on prompt match and intent preference despite being just an 8B model with a smaller training set. Part of the remaining gap can be attributed to missing data types such as "portrait retouch", which we retained for fair evaluation. The strong performance of UniFusion despite this highlights its potential when equipped with a more comprehensive dataset and scaled up in parameters.
       </p>
       <p>
         (AB testing plot on editing will be included in the updated version of ArXiv shortly)
@@ -417,7 +417,7 @@
     </div>
     <div class="content has-text-justified">
       <p>
-        UniFusion demonstrated significant improvements in prompt alignment for text-to-image generation after finetuning on editing tasks for just <em>11k steps</em>. Specifically, UniFusion-Edit leads UniFusion-Base by over 2 percentage points in Micro Avg. of DPG-Bench. In an A/B test with 180 annotators across 616 prompts (2 seeds each), UniFusion-Edit achieves nearly double double the win rate of UniFusion-Base.
+        UniFusion demonstrated significant improvements in prompt alignment for text-to-image generation after finetuning on editing tasks for just <em>11k steps</em>. Specifically, UniFusion-Edit leads UniFusion-Base by over 2 percentage points in Micro Avg. of DPG-Bench. In an A/B test with 180 annotators across 616 prompts (2 seeds each), UniFusion-Edit achieves nearly double the win rate of UniFusion-Base.
       </p>
       <p>
         We hypothesize that this improvement stems from the unified encoder framework. In a shared encoder space, concepts represented by different modalities become more semantically aligned compared to the conventional separation of VAE and T5 spaces. For DiT, this offers two theoretical benefits:
