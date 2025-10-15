@@ -407,7 +407,10 @@
     </div>
     <div class="content has-text-justified">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt auctor tortor non viverra. Phasellus elit arcu, iaculis eget bibendum id, ultricies sed risus. Etiam ut est a nisl hendrerit vehicula euismod in purus. Vestibulum et dapibus est. Ut in mauris tempor justo tincidunt congue sit amet quis ipsum. Etiam dapibus nisi risus, ut ornare velit suscipit in. Cras consectetur rutrum magna, et rutrum velit pharetra fermentum. Aenean pulvinar accumsan justo quis scelerisque. Vivamus varius in diam in ullamcorper. Vestibulum porta elementum dolor vel lacinia.
+        UniFusion demonstrated significant improvements in prompt alignment for text-to-image generation after finetuning on editing tasks for just <em>11k steps</em>. Specifically, UniFusion-Edit leads UniFusion-Base by over 2 percentage points in Micro Avg of DPG-Bench. In an A/B test conducted on  180 annotators with 616 prompts, 2 seeds each, UniFusion-Edit obtains almost double the win rate of UniFusion-Base.
+      </p>
+      <p>
+        We hypothesize that this behavior is a direct benefit of the unified encoder framework. In a unified encoder space, a single concept represented by different modalities should be more aligned, compared to standard practice of VAE vs T5 space. For DiT, this suggest two theoretical benefits - first, less disruption in parameters space during the transition from text-to-image towards editing tasks; second, by optimizing the same flow matching (or denoising) loss given different modalities of the same concept, DiT is able to put together a more complete understanding of the concept, subsequently transferring the learning from one task to another.
       </p>
     </div>
   </div>
